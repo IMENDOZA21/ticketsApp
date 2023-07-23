@@ -16,6 +16,7 @@ type Query {
     findAllByStatusPaged(status: Boolean, page: Int, size: Int): [Ticket]! # Obtener todos los tickets filtrados por estado paginados
     findAllByUser(user: String): [Ticket]! # Obtener todos los tickets asociados a un usuario
     findAllByUserPaged(user: String, page: Int, size: Int): [Ticket]! # Obtener todos los tickets asociados a un usuario paginados
+    findByRangoFechas(fechaInicio: String, fechaFin: String, page: Int, size: Int): [Ticket]! # Obtener todos los tickets creados en un rango de fechas
 }
 
 type Mutation {
