@@ -1,7 +1,11 @@
+scalar DateTime
+
 type Ticket {
     id: ID! # Identificador único del ticket
     user: String # Nombre del usuario asociado al ticket
     status: Boolean # Estado actual del ticket (true para abierto, false para cerrado)
+    createdAt: DateTime # Fecha de creacion del ticket
+    updatedAt: DateTime # Fecha de actualizacion del ticket
 }
 
 type Query {

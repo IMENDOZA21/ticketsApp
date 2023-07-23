@@ -5,7 +5,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Comment;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.time.OffsetDateTime;
 
 @Entity @Getter @Setter
 @Table(name = "tickets", catalog = "public")
@@ -22,11 +22,11 @@ public class Ticket {
     @Basic
     @Column(name = "CreatedAt", nullable = false)
     @Comment("Fecha de creacion del ticket")
-    private Timestamp createdAt;
+    private OffsetDateTime createdAt;
     @Basic
     @Column(name = "UpdatedAt")
     @Comment("Fecha de actualizacion del ticket")
-    private Timestamp updatedAt;
+    private OffsetDateTime updatedAt;
     @Basic
     @Column(name = "Status", nullable = false)
     @Comment("Estado en el que se encuentra un ticket; abierto(1) cerrado(0)")

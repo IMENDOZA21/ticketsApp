@@ -10,7 +10,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
-import java.sql.Timestamp;
+
+import java.time.OffsetDateTime;
 import java.util.Optional;
 
 @Component
@@ -57,7 +58,7 @@ public class TicketGraphQLService implements GraphQLQueryResolver, GraphQLMutati
         Ticket ticket = new Ticket();
         ticket.setUser(user);
         ticket.setStatus(status);
-        ticket.setCreatedAt(new Timestamp(System.currentTimeMillis()));
+        ticket.setCreatedAt(OffsetDateTime.now());
         return repository.save(ticket);
     }
 
@@ -79,7 +80,7 @@ public class TicketGraphQLService implements GraphQLQueryResolver, GraphQLMutati
             ticket = optionalTicket.get();
             ticket.setUser(user);
             ticket.setStatus(status);
-            ticket.setUpdatedAt(new Timestamp(System.currentTimeMillis()));
+            ticket.setUpdatedAt(OffsetDateTime.now());
             return repository.save(ticket);
         }
         throw new Exception("Not found Tutorial to update!");
