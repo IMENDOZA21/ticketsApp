@@ -1,0 +1,20 @@
+type Ticket {
+    id: ID! # Identificador único del ticket
+    user: String # Nombre del usuario asociado al ticket
+    status: Boolean # Estado actual del ticket (true para abierto, false para cerrado)
+}
+
+type Query {
+    findAllTickets: [Ticket]! # Obtener todos los tickets
+    findById(id: ID!): Ticket # Buscar un ticket por su ID
+    findAllByStatus: [Ticket]! # Obtener todos los tickets filtrados por estado
+    findAllByUser: [Ticket]! # Obtener todos los tickets asociados a un usuario
+}
+
+type Mutation {
+    createTicket(user: String, status: Boolean): Ticket! # Crear un nuevo ticket
+    updateTicket(id: ID!, user: String, status: Boolean): Ticket! # Actualizar un ticket existente
+    deleteTicket(id: ID!): Boolean # Eliminar un ticket por su ID
+}
+
+

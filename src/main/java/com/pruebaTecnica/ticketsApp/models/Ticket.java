@@ -9,9 +9,10 @@ import java.sql.Timestamp;
 
 @Entity @Getter @Setter
 @Table(name = "tickets", catalog = "ticketsDB")
-public class ticket {
+public class Ticket {
     @Id
     @Column(name = "Id", insertable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Comment("Identificador de la tabla")
     private Long id;
     @Basic
