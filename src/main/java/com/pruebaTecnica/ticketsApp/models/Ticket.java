@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity @Getter @Setter
-@Table(name = "tickets", catalog = "ticketsDB")
+@Table(name = "tickets", catalog = "public")
 public class Ticket {
     @Id
     @Column(name = "Id", insertable = false, unique = true)

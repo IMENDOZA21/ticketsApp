@@ -6,9 +6,12 @@ type Ticket {
 
 type Query {
     findAllTickets: [Ticket]! # Obtener todos los tickets
+    findAllTicketsPaged(page: Int, size: Int): [Ticket]! # Obtener todos los tickets paginados
     findById(id: ID!): Ticket # Buscar un ticket por su ID
-    findAllByStatus: [Ticket]! # Obtener todos los tickets filtrados por estado
-    findAllByUser: [Ticket]! # Obtener todos los tickets asociados a un usuario
+    findAllByStatus(status: Boolean): [Ticket]! # Obtener todos los tickets filtrados por estado
+    findAllByStatusPaged(status: Boolean, page: Int, size: Int): [Ticket]! # Obtener todos los tickets filtrados por estado paginados
+    findAllByUser(user: String): [Ticket]! # Obtener todos los tickets asociados a un usuario
+    findAllByUserPaged(user: String, page: Int, size: Int): [Ticket]! # Obtener todos los tickets asociados a un usuario paginados
 }
 
 type Mutation {

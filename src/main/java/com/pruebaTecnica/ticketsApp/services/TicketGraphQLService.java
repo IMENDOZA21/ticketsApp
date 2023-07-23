@@ -5,6 +5,9 @@ import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.pruebaTecnica.ticketsApp.models.Ticket;
 import com.pruebaTecnica.ticketsApp.repositories.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
@@ -23,6 +26,11 @@ public class TicketGraphQLService implements GraphQLQueryResolver, GraphQLMutati
         return repository.findAll();
     }
 
+    public Page<Ticket> findAllTicketsPaged(Integer page, Integer size){
+        PageRequest pageRequest = PageRequest.of(page, size);
+        return repository.findAll(pageRequest);
+    }
+
     public Ticket findById(Long id){
         return repository.findById(id).orElse(null);
     }
@@ -31,8 +39,18 @@ public class TicketGraphQLService implements GraphQLQueryResolver, GraphQLMutati
         return repository.findAllByStatus(status);
     }
 
+    public Page<Ticket> findAllByStatusPaged(Boolean status, Integer page, Integer size){
+        Pageable pageable = PageRequest.of(page, size);
+        return repository.findAllByStatus(status, pageable);
+    }
+
     public Iterable<Ticket> findAllByUser(String user){
         return repository.findAllByUser(user);
+    }
+
+    public Page<Ticket> findAllByUserPaged(String user, Integer page, Integer size){
+        Pageable pageable = PageRequest.of(page, size);
+        return repository.findAllByUser(user, pageable);
     }
 
     public Ticket createTicket(String user, Boolean status) {
