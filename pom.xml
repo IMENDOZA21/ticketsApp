@@ -11,6 +11,7 @@
 	<groupId>com.pruebaTecnica</groupId>
 	<artifactId>ticketsApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>ticketsApp</name>
 	<description>Prueba tecnica para Double V partners</description>
 	<properties>
@@ -58,6 +59,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webflux</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
